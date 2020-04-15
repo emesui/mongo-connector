@@ -1,0 +1,19 @@
+GET http://localhost:8080/get/random
+
+###
+
+GET http://localhost:8080/insert/random
+
+###
+
+GET http://localhost:8080/delete/random
+
+###
+
+GET http://localhost:8080/actuator/prometheus
+
+###
+
+ab -n 100000 -c 100 -k -r http://localhost:8080/insert/random &; \
+ab -n 100000 -c 100 -k -r http://localhost:8080/get/random &; \
+ab -n 100000 -c 100 -k -r http://localhost:8080/delete/random &
